@@ -1,0 +1,20 @@
+<div class="header">
+  <div class="navbar">
+    <div class="logo">
+        <a routerLink="/home"><img src="/assets/img/Logo.ico" width="125px"></a>
+    </div>
+    <nav>
+        <ul id="MenuItems">
+            <li><a routerLink="/home">Inicio</a></li>
+            <li><a routerLink="/products">Productos</a></li>
+            <li><a routerLink="/aboutus">Sobre Nosotros</a></li>
+            <li><a routerLink="/account">Mi Cuenta</a></li>
+        </ul>
+    </nav>
+    <button routerLink="/cart" class="btn btn-primary">
+      <i style="font-size:30px;" class="fas fa-cart-plus"></i>
+      <div style="font-size:12px" class="badge bg-danger">{{totalItem}}</div>
+    </button>
+    <img src="/assets/img/menu.png" class="menu-icon">
+  </div>
+</div>

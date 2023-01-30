@@ -1,0 +1,53 @@
+.title {
+  text-align: center;
+  margin: 0 auto 50px;
+  position: relative;
+  line-height: 60px;
+  padding-top: 100px;
+  color: #555;
+  
+}
+.title::after {
+  content: "";
+  background: #ff523b;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+table {
+  background-color: rgb(209, 216, 220);
+  border-collapse: collapse;
+  width: 50%;
+  margin: 50px 25%;
+}
+
+th,
+td {
+  border-collapse: collapse;
+  padding: 8px;
+  text-align: center;
+  padding: 5px;
+}
+
+td {
+  font-size: larger;
+}
+
+th {
+  font-size: x-large;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc0cb; /* gris claro */
+}
+
+img{
+  width: 500px;
+  height: 600px;
+  margin-left: 36%;
+}

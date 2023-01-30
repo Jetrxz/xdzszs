@@ -1,0 +1,51 @@
+.header{
+    background: radial-gradient(#fff,#ffd6d6);
+}
+.header .row{
+    margin-top: 0px;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0px 35px;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+.btn-primary{
+  border: none;
+  border-radius: 3px;
+  padding: 5px 5px;
+  text-decoration: none;
+  background-color: #d97676;
+  color: #fff;
+  cursor: pointer;
+}
+.bg-danger{
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+
+.menu-icon {
+    width: 28px;
+    margin-left: 20px;
+    display: none;
+}

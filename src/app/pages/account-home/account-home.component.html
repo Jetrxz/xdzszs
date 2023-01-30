@@ -1,0 +1,21 @@
+<h1 class="title">Bienvenido a tu cuenta, {{username}}</h1>
+<div class="checkout-form">
+  <h2>Detalles sobre mi cuenta:</h2>
+  <form [formGroup]="checkoutForm">
+    <div class="form-group">
+      <label for="name">Nombres:</label>
+      <input type="text" formControlName="nombres" id="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" formControlName="apellidos" id="apellidos" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="telefono">Telefono:</label>
+      <input type="tel" formControlName="celular" id="telefono" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Cambiar datos</button>
+    <button type="submit" class="btn btn-success">Ver mis pedidos</button>
+    <button type="submit" class="btn btn-success">Ver mis comprobantes</button>
+  </form>
+</div>

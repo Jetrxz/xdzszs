@@ -1,0 +1,80 @@
+<!-- Mask -->
+<div class="mask">
+  <!-- Main container -->
+  <div class="container">
+    <!-- Chat list view -->
+    <section class="list">
+      <!-- Chat list header -->
+      <header class="list__header">
+        <span>Conversations</span>
+      </header>
+      <!-- Chat list -->
+      <div class="list__body">
+        <!-- Chat conversation -->
+        <a id="chat1" class="list__chat">
+          <div class="list__preview">
+            <h3 class="list__user">Dlicia</h3>
+            <span class="list__message">How is it going?</span>
+          </div>
+        </a>
+        <!-- Chat conversation -->
+        <a id="chat2" class="list__chat">
+          <div class="list__preview">
+            <h3 class="list__user">Susan</h3>
+            <span class="list__sent"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span class="list__message">The exam was very easy, don't you think?</span>
+          </div>
+        </a>
+        <!-- Chat conversation -->
+        <a id="chat3" class="list__chat">
+          <div class="list__preview">
+            <h3 class="list__user">Mark</h3>
+            <span class="list__sent"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span class="list__message">Hey, did you see what happened to the car?</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <!-- Conversation view -->
+    <section class="conversation">
+      <!-- Conversation view header -->
+      <header class="conversation__header">
+        <button class="conversation__btn btn btn--list" title="Conversation list">
+          <img src="../../../assets/img/cake.png">
+        </button>
+        <div class="conversation__info">
+          <span class="conversation__status"></span>
+          <span class="conversation__name">Dlicia</span>
+        </div>
+      </header>
+      <!-- Conversation view messages -->
+      <div class="conversation__body" id="area-messages">
+      </div>
+      <!-- Conversation view footer -->
+      <footer class="conversation__footer">
+        <input type="text" class="conversation__write">
+        <button class="conversation__btn btn btn--send" title="Send message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </footer>
+    </section>
+  </div>
+</div>

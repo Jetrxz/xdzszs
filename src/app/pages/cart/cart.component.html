@@ -1,0 +1,57 @@
+<ng-container *ngIf="products.length != 0">
+  <div class="container">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products; let i = index">
+              <td>{{i+1}}</td>
+              <td><img style="width: 120px;" [src]="url+item.imageUrl"></td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.descripcion}}</td>
+              <td>S/.{{item.precio}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.total}}</td>
+              <td>
+                <button (click)="removeItem(item)"class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4"></td>
+              <td><button (click)="emptyCart()" class="btn btn-danger">Vaciar Carrito</button></td>
+              <td><button routerLink="/products" class="btn btn-yellow">Comprar mas</button></td>
+              <td><button routerLink="/checkout" class="btn btn-green">Continuar Compra</button></td>
+              <td><strong>Total : ${{grandTotal}}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+  <div class="small-container cart-page">
+    <div class="cart">
+        <h2 class="cart-title">Mi carrito</h2>
+        <div class="center">
+            <img src="../../../assets/img/empty.png">
+            <h4>Tu carrito esta vacío</h4>
+            <h6>Busca algun producto de tu interés</h6>
+        </div>
+        <button type="button" class="btn-buy"><a routerLink="/products">Comprar Ahora</a></button>
+    </div>
+  </div>
+</ng-container>

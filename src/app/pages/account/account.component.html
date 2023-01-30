@@ -1,0 +1,77 @@
+<div class="account-page">
+  <div class="container">
+    <div class="row">
+      <input type="checkbox" id="flip">
+      <div class="cover">
+        <div class="front">
+          <img src="/../../../assets/img/paglogin.png" id="imagen">
+          <div class="text">
+            <span class="text-1"><br></span>
+            <span class="text-2"></span>
+          </div>
+        </div>
+        <div class="back">
+          <img class="backImg" src="/../../../assets/img/paglogin.png" id="imagen">
+          <div class="text">
+            <span class="text-1"><br> </span>
+            <span class="text-2"></span>
+          </div>
+        </div>
+      </div>
+      <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+            <form #userLogin="ngForm" (ngSubmit)="login($event, userLogin.value) ">
+              <div class="input-boxes">
+                <div class="input-box">
+                  <i class="fas fa-user"></i>
+                  <input type="text" ngModel name="Usuario" placeholder="Ingresa tu usuario" required>
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" ngModel name="Contrasena" placeholder="Ingresa tu contraseña" required>
+                </div>
+                <div class="button input-box">
+                  <input type="submit" value="Ingresar">
+                </div>
+                <div class="text sign-up-text">¿No tienes cuenta? <label for="flip">Registrate ahora</label></div>
+              </div>
+            </form>
+          </div>
+          <div class="signup-form">
+            <div class="title">Registrarse</div>
+            <form #userSingUp="ngForm" (ngSubmit)="signUp($event,userSingUp.value)">
+              <div class="input-boxes">
+                <div class="input-box">
+                  <i class="fa-solid fa-signature"></i>
+                  <input type="text" ngModel name="Nombres" placeholder="Ingresa tus nombres" required>
+                </div>
+                <div class="input-box">
+                  <i class="fa-solid fa-signature"></i>
+                  <input type="text" ngModel name="Apellidos" placeholder="Ingresa tus apellidos" required>
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-user"></i>
+                  <input type="text" ngModel name="Usuario" placeholder="Ingresa tu usuario" required>
+                </div>
+                <div class="input-box">
+                  <i class="fa-solid fa-phone"></i>
+                  <input type="tel" ngModel name="Celular" placeholder="Ingresa tu telefono" required>
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" ngModel name="Contrasena" placeholder="Ingresa tu contraseña" required>
+                </div>
+                <div class="button input-box">
+                  <input type="submit" value="ingresar">
+                </div>
+                <div class="text sign-up-text">¿Ya tienes cuenta? <label for="flip">Ingresa</label></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

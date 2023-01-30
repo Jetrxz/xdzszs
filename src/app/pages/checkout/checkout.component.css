@@ -1,0 +1,49 @@
+/* Aplicar un margen y padding a todo el formulario */
+form {
+  margin: 20px 0;
+  padding: 80px 20px;
+}
+
+/* Estilo para los labels */
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Estilo para los inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo para el botón de submit */
+button[type="submit"] {
+  background-color: #ff523b;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* Estilo para el botón de submit al hacer hover */
+button[type="submit"]:hover {
+  background-color: #563434;
+}
+
+.checkout-form{
+  max-width: 800px;
+  max-height: 1000px;
+  margin: auto;
+  padding: 10px 10px 70% 10px;
+}

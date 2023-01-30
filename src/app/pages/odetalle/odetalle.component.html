@@ -1,0 +1,18 @@
+<div>
+  <h1 class="title">Detalles del pedido</h1>
+  <table>
+    <tr>
+      <th>IdPedido</th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>TotalProducto</th>
+    </tr>
+    <tr *ngFor="let detail of details">
+      <td>{{ detail.idPedido }}</td>
+      <td>{{ detail.productoId.nombre }}</td>
+      <td>{{ detail.cantidad }}</td>
+      <td>{{ detail.totalProduto }}</td>
+    </tr>
+  </table>
+  <img src="../../../assets/img/fincompra.jpg">
+</div>

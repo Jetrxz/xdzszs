@@ -1,0 +1,42 @@
+<div *ngIf="!userService.isUserLoggedIn.getValue()">
+</div>
+<div class="checkout-form" *ngIf="userService.isUserLoggedIn.getValue()">
+  <form [formGroup]="checkoutForm">
+    <div class="form-group">
+      <label for="name">Nombres:</label>
+      <input type="text" formControlName="nombres" id="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" formControlName="apellidos" id="apellidos" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="address">Selecciona tu ubicacion:</label>
+      <google-map width="750px" height="450px" (mapClick)="onMapClick($event)" [center]="posicioninical" [zoom]="15">
+        <map-marker [position]="marcador"></map-marker>
+      </google-map>
+      <input type="hidden">
+    </div>
+    <div class="form-group">
+      <label for="direccion">Direccion:</label>
+      <input type="text" formControlName="direccion" id="direccion" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="referencia">Referencia:</label>
+      <input type="text" formControlName="referencia" id="referencia" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="telefono">Telefono:</label>
+      <input type="tel" formControlName="celular" id="telefono" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="payment-method">Método de pago:</label>
+      <select id="payment-method" class="form-control">
+        <option value="credit-card">Efectivo</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success" (click)="onSubmit()">Realizar pedido</button>
+    </div>
+  </form>
+</div>
