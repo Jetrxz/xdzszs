@@ -1,7 +1,5 @@
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { PedidoProductoModel } from '../models/pedidoproducto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +61,4 @@ export class CartService {
     this.cartItemsCount.next(this.cardItemList.length);
     this.itemsCount.next(0);
   }
-  
 }

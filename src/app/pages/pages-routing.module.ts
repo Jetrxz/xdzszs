@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthGuard } from './guard/auth.guard';
+import { PedidosuserComponent } from './pedidosuser/pedidosuser.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,9 @@ const routes: Routes = [
       },
       {
         path:'checkout', component:CheckoutComponent
+      },
+      {
+        path:'userpedidos', component:PedidosuserComponent
       },
       {
         path:'account-home', component:AccountHomeComponent,

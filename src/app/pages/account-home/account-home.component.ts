@@ -9,12 +9,12 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './account-home.component.html',
   styleUrls: ['./account-home.component.css']
 })
-export class AccountHomeComponent implements OnInit{
+export class AccountHomeComponent implements OnInit {
   username = '';
   checkoutForm: any;
   userData: any;
 
-  constructor(private userService:UserService) {
+  constructor(private userService: UserService) {
     this.checkoutForm = new FormGroup({
       'nombres': new FormControl(''),
       'apellidos': new FormControl(''),
@@ -28,7 +28,7 @@ export class AccountHomeComponent implements OnInit{
       apellidos: '',
       celular: ''
     };
-   }
+  }
   ngOnInit(): void {
     this.userService.reloadUser();
     if (this.userService.isUserLoggedIn.getValue()) {

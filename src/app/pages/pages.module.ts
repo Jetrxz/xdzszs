@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IAchatbotComponent } from './iachatbot/iachatbot.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { OdetalleComponent } from './odetalle/odetalle.component';
+import { PedidosuserComponent } from './pedidosuser/pedidosuser.component';
 
 const config: SocketIoConfig = { url: 'https://servidordenode-jetrxz.onrender.com', options: {} };
 
@@ -33,7 +34,8 @@ const config: SocketIoConfig = { url: 'https://servidordenode-jetrxz.onrender.co
     AccountHomeComponent,
     CheckoutComponent,
     IAchatbotComponent,
-    OdetalleComponent
+    OdetalleComponent,
+    PedidosuserComponent
   ],
   imports: [
     ReactiveFormsModule,

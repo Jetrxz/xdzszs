@@ -1,3 +1,4 @@
+import { ProductoPedido } from './../../data-type';
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 
@@ -6,15 +7,26 @@ import { OrderService } from 'src/app/services/order.service';
   templateUrl: './odetalle.component.html',
   styleUrls: ['./odetalle.component.css']
 })
-export class OdetalleComponent implements OnInit{
-  details: any;
+export class OdetalleComponent implements OnInit {
+  details: any [] = [];
+  private pedidoId: number = 0;
+
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
-    const pedido_ProductoId = this.orderService.getOrderId();
-    this.orderService.getDetailsOrder(pedido_ProductoId).subscribe(data => {
-      console.log(data);
-      this.details =  Object.values(data);
+    let value = localStorage.getItem('pedidoId');
+    value = value !== null ? value : "";
+    this.pedidoId = JSON.parse(value) || 0;
+    this.orderService.getProductosPorPedido(this.pedidoId).subscribe(productos => {
+      console.log(productos);
+      this.details = productos.pedido_Productos.map((p: ProductoPedido) => ({
+        pedidoId: productos.pedidoId,
+        fechaEntrega: p.fechaEntrega,
+        cantidad: p.cantidad,
+        totalProducto: p.totalProducto
+      }));
     });
+
   }
 }
+

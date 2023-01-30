@@ -1,0 +1,19 @@
+<div>
+  <h1 class="title">Todos sus pedidos</h1>
+  <table>
+    <tr>
+      <th>IdPedido</th>
+      <th>FechaPedido</th>
+      <th>FechaEntrega</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let pedido of pedidos">
+      <td>{{ pedido.pedidoId }}</td>
+      <td>{{ pedido.fechaPedido }}</td>
+      <td>{{ pedido.fechaEntrega }}</td>
+      <td>{{ pedido.total }}</td>
+    </tr>
+  </table>
+  <button type="submit" routerLink="/home">Ir a la pagina principal</button>
+</div>
+

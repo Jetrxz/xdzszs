@@ -1,4 +1,4 @@
-export class PedidoProductoModel {
+export class Pedido_ProductoModel {
   pedidoProductoId: number;
   cantidad: number;
   totalProducto: number;

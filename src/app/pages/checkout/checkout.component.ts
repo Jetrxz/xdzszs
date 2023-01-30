@@ -1,15 +1,16 @@
-import { OrderService } from 'src/app/services/order.service';
-import { Product } from './../../data-type';
 import { PedidosModel } from './../../models/pedidos.model';
 import { CartService } from './../../services/cart.service';
 import { UbicacionService } from './../../services/ubicacion.service';
+import { OrderService } from './../../services/order.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Ubicacion_PedidoModel } from 'src/app/models/ubicacionpedido.model';
-import { Console } from 'console';
-import { PedidoProductoModel } from 'src/app/models/pedidoproducto.model';
+import { Product } from 'src/app/data-type';
+import { Pedido_ProductoModel } from 'src/app/models/pedidoproducto.model';
+import { ComprobanteModel } from 'src/app/models/comprobante.model';
+import { ComprobanteService } from 'src/app/services/comprobante.service';
 
 @Component({
   selector: 'app-checkout',
@@ -17,16 +18,19 @@ import { PedidoProductoModel } from 'src/app/models/pedidoproducto.model';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  pedidoId: number = 0;
   checkoutForm: any;
   userData: any;
   posicioninical: any = { lat: -12.075023128160083, lng: -75.20239040344387 };
   marcador: any = { lat: -12.075023128160083, lng: -75.20239040344387 };
+
   constructor(
     public userService: UserService,
     private router: Router,
     public orderService: OrderService,
     public ubicacionService: UbicacionService,
-    public cartService: CartService
+    public cartService: CartService,
+    public comprobanteService:ComprobanteService
   ) {
     this.checkoutForm = new FormGroup({
       'nombres': new FormControl(''),
@@ -77,7 +81,6 @@ export class CheckoutComponent implements OnInit {
       const fechaEntrega = new Date(fechaActual);
       fechaEntrega.setDate(fechaEntrega.getDate() + 1);
       let pedido = new PedidosModel();
-      let pedido_Productos: any[] = [];
       if (userString) {
         const user = JSON.parse(userString);
         const clienteId = user.clienteId;
@@ -87,25 +90,38 @@ export class CheckoutComponent implements OnInit {
         pedido.estadoId = 1;
         pedido.clienteId = clienteId;
         pedido.ubicacionId = ubicacionId;
-        pedido.pedido_Productos = [];
-      }
-      this.orderService.createOrder(pedido).subscribe(response => {
-        const pedidoId = response.pedidoId;
-        let pedido_Productos: any[] = [];
-        this.cartService.getProducts().subscribe(productos => {
+        const productos = this.cartService.getProducts();
+        productos.subscribe(productos => {
           productos.forEach((a: Product) => {
-            let pedidoProducto = new PedidoProductoModel();
-            pedidoProducto.pedidoId = pedidoId;
+            const pedidoProducto = new Pedido_ProductoModel();
             pedidoProducto.productoId = a.productoId;
             pedidoProducto.cantidad = a.quantity;
             pedidoProducto.totalProducto = a.quantity * a.precio;
-            pedido_Productos.push(pedidoProducto);
-          });
-          this.orderService.createPedidoProductos(pedidoId, pedido_Productos).subscribe(response => {
-            this.router.navigate(['odetails']);
+            pedido.pedido_Productos.push(pedidoProducto);
           });
         });
+      }
+      this.orderService.createOrder(pedido).subscribe(response => {
+        this.pedidoId = response.pedidoId;
+        const pedidoId = response.pedidoId;
+        if (pedidoId) {
+          localStorage.setItem('pedidoId', JSON.stringify(pedidoId));
+        }
+        this.orderService.getProductosPorPedido(pedidoId).subscribe(response => {
+        });
+        const comprobante = new ComprobanteModel();
+        comprobante.descripcion = `Comprobante del pedido número ${pedidoId}`;
+        comprobante.codigo=this.generateRandomNumber(0,10000);
+        comprobante.pedidoId = this.pedidoId;
+        comprobante.tipoComprobanteId = 1;
+        this.comprobanteService.createComprobante(comprobante).subscribe(response => {
+          // cualquier acción adicional
+        });
+        this.router.navigate(['odetails']);
       });
     });
+  }
+  generateRandomNumber(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 }

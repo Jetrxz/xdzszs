@@ -52,5 +52,8 @@ export class UserService {
     }
     return 0;
   }
+  updateUser(clienteId: string, updatedUserData: any) {
+    return this.http.put(`https://localhost:7139/api/Cliente/${clienteId}`, updatedUserData);
+   }
 }
 

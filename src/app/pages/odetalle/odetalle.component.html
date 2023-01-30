@@ -3,16 +3,17 @@
   <table>
     <tr>
       <th>IdPedido</th>
-      <th>Producto</th>
+      <th>Estado</th>
       <th>Cantidad</th>
       <th>TotalProducto</th>
     </tr>
     <tr *ngFor="let detail of details">
-      <td>{{ detail.idPedido }}</td>
-      <td>{{ detail.productoId.nombre }}</td>
+      <td>{{ detail.pedidoId }}</td>
+      <td>En preparacion</td>
       <td>{{ detail.cantidad }}</td>
-      <td>{{ detail.totalProduto }}</td>
+      <td>{{ detail.totalProducto }}</td>
     </tr>
   </table>
+  <button type="submit" routerLink="/home">Ir a la pagina principal</button>
   <img src="../../../assets/img/fincompra.jpg">
 </div>
